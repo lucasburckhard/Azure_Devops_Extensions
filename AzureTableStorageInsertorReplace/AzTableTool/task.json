@@ -1,0 +1,84 @@
+{
+  "id": "6571b030-ac88-274b-5739-ef196da03d2d",
+  "name": "AzTableTool",
+  "friendlyName": "Azure Storage Table Tool",
+  "description": "Inserts or Replaces Azure Storage Table data.",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "A tool to push csv file data into Azure.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+	"Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "3"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Azure Table Tool $(message)",
+  "inputs": [
+    {
+      "name": "csvFile",
+      "type": "string",
+      "label": "CSV File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": " A CSV file.  This file must include column names in the first row, two of which must represent a partition key and a row key."
+    },
+	{
+      "name": "storageAccount",
+      "type": "string",
+      "label": "Storage Account Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Azure Storage Account resource name."
+    },
+	{
+      "name": "accessKey",
+      "type": "string",
+      "label": "SAS Access Key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "This value is the SAS acccess key - starts with sv="
+    },
+	{
+      "name": "table",
+      "type": "string",
+      "label": "Table Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name of table located in Azure Storage Account.  The table will be created if it doesn't exist."
+    },
+	{
+      "name": "partitionKey",
+      "type": "string",
+      "label": "Partition key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The csv file should have column names as values in the first row.  Identify the column name that should be used as a partition key."
+    },
+	{
+      "name": "rowKey",
+      "type": "string",
+      "label": "Row Key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The csv file should have column names as values in the first row.  Identify the column name that should be used as a row key."
+    },
+	{
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Directory where csv file is located."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}

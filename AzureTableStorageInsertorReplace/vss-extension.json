@@ -1,0 +1,43 @@
+{
+    "manifestVersion": 1,
+    "id": "AzTableTool",
+    "name": "AzTableTool",
+    "version": "1.0.3",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Azure Storage Table Insert or Replace tool.  Use SAS authentication to insert or replace rows in an Azure Storage Table.",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "AzTableTool"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"Azure",
+		"Storage",
+		"Table",
+		"Insert",
+		"Replace"
+	],
+	"contributions": [
+        {
+            "id": "AzTableTool",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "AzTableTool"
+            }
+        }
+    ]
+}
