@@ -1,0 +1,42 @@
+{
+    "manifestVersion": 1,
+    "id": "URLCrawler",
+    "name": "URLCrawler",
+    "version": "1.0.6",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "An HREF based URL crawler.  Output is saved in a file named URLs.crawler",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "URLCrawler"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"URL",
+		"Crawler",
+		"HREF",
+		"LINKS"
+	],
+	"contributions": [
+        {
+            "id": "URLCrawler",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "URLCrawler"
+            }
+        }
+    ]
+}

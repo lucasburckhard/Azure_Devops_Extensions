@@ -1,0 +1,52 @@
+{
+  "id": "6571b030-ac88-196b-6468-ef076da03d2d",
+  "name": "WAVEScanner",
+  "friendlyName": "WAVE Accessibility Testing Tool",
+  "description": "Scans a url or list of urls and creates a report that can be emailed and/or saved to a file.",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "A tool to assess the accessibility of webpages.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+	"Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "6"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "WAVE Scanner $(message)",
+  "inputs": [
+    {
+      "name": "urlFile",
+      "type": "string",
+      "label": "URL File",
+      "defaultValue": "URLs.txt",
+      "required": true,
+      "helpMarkDown": "A file with a list of urls"
+    },
+    {
+      "name": "waveKey",
+      "type": "string",
+      "label": "WAVE API Key",
+      "defaultValue": "Testing1",
+      "required": true,
+      "helpMarkDown": "An Api token given by your WAVE provider.  Warning - this task uses credits on your WAVE API Key and will not work when you run out of credits."
+    },
+	{
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Directory where URLs file is located and where results file will go."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}

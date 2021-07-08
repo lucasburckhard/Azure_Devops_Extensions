@@ -1,0 +1,42 @@
+{
+    "manifestVersion": 1,
+    "id": "WAVEScanner",
+    "name": "WAVEScanner",
+    "version": "1.0.6",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Scans a list of URLs and reports Accessibility metrics and violations.",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "WAVEScanner"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"WAVE",
+		"Scanner",
+		"Accessibility",
+		"Tester"
+	],
+	"contributions": [
+        {
+            "id": "WAVEScanner",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "WAVEScanner"
+            }
+        }
+    ]
+}

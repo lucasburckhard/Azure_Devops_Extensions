@@ -1,0 +1,42 @@
+{
+    "manifestVersion": 1,
+    "id": "SMTPSender",
+    "name": "SMTPSender",
+    "version": "1.0.4",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Scans a list of URLs and reports Accessibility metrics and violations.",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "SMTPSender"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"SMTP",
+		"Sender",
+		"Email",
+		"HTML"
+	],
+	"contributions": [
+        {
+            "id": "SMTPSender",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "SMTPSender"
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "manifestVersion": 1,
+    "id": "fortifyStaticScanner",
+    "name": "FortifyStaticScanner",
+    "version": "1.0.21",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Scans applications for vulnerabilities and uploads results to you Fortify SSC website",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "FortifyStaticScanner"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"Fortify",
+		"Static",
+		"Scanner",
+		"Security"
+	],
+	"contributions": [
+        {
+            "id": "fortify-scanner",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "FortifyStaticScanner"
+            }
+        }
+    ]
+}

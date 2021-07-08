@@ -1,0 +1,68 @@
+{
+  "id": "6571b030-ac88-257b-9692-ef296da03d2d",
+  "name": "URLCrawler",
+  "friendlyName": "HREF Based URL Crawler",
+  "description": "Uses HREF links to find links associated with a raw domain.",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "URL Crawler will drill into a website using HREF links to navigate and find links related to the raw domain.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+	"Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "6"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "URL Crawler $(message)",
+  "inputs": [
+    {
+      "name": "baseUrl",
+      "type": "string",
+      "label": "Raw Domain URL",
+      "defaultValue": ".com/",
+      "required": true,
+      "helpMarkDown": "The raw url for the domain."
+    },
+    {
+      "name": "homepage",
+      "type": "string",
+      "label": "Raw Domain Homepage",
+      "defaultValue": ".com/",
+      "required": true,
+      "helpMarkDown": "This is the homepage of the raw domain."
+    },
+    {
+      "name": "loopNumber",
+      "type": "string",
+      "label": "Depth",
+      "defaultValue": "10",
+      "required": true,
+      "helpMarkDown": "This amount represents the depth to drill into the website. Higher values will take longer."
+    },
+    {
+      "name": "urlFile",
+      "type": "string",
+      "label": "Depth",
+      "defaultValue": "URLs.txt",
+      "required": true,
+      "helpMarkDown": "This is the name of the URLs text file.  If one already exists then URL Crawler will append any additional unique links in the existing file to urls found."
+    },
+	{
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Directory where URL results file will go."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+    "manifestVersion": 1,
+    "id": "SPNSqlDeploy",
+    "name": "SPNSqlDeploy",
+    "version": "1.0.12",
+    "publisher": "Resurgent-LucasBurckhard",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Deploys sql scripts to Azure using Azure SPN authentication",
+    "categories": [
+        "Azure Pipelines"
+    ],    
+    "files": [
+        {
+            "path": "SPNSqlDeploy"
+        }
+    ],
+	"icons": {
+        "default": "extension-icon.png"
+    },
+	"tags": [
+		"Sql",
+		"Deploy",
+		"Azure",
+		"SPN"
+	],
+	"contributions": [
+        {
+            "id": "SPN-Sql-Deploy",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+				"name": "SPNSqlDeploy"
+            }
+        }
+    ]
+}

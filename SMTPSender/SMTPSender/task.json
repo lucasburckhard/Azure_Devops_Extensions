@@ -1,0 +1,76 @@
+{
+  "id": "6571b030-ac88-400b-1616-ef376da03d2d",
+  "name": "SMTPSender",
+  "friendlyName": "SMTP HTML Email Tool",
+  "description": "Use an HTML file as an HTML body for relaying an email to users over SMTP.",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "A tool to send HTML emails using SMTP relay.",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+	"Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "4"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "SMTP Sender $(message)",
+  "inputs": [
+    {
+      "name": "htmlFile",
+      "type": "string",
+      "label": "HTML File",
+      "defaultValue": "WAVE.html",
+      "required": true,
+      "helpMarkDown": "A file with html code for the body of the email."
+    },
+    {
+      "name": "smtpServerName",
+      "type": "string",
+      "label": "SMTP Server Name",
+      "defaultValue": ".outlook.com",
+      "required": true,
+      "helpMarkDown": "The name of the SMTP Server to be used."
+    },
+    {
+      "name": "subject",
+      "type": "string",
+      "label": "Email Subject",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The subject to be included in the email."
+    },
+    {
+      "name": "to",
+      "type": "string",
+      "label": "To",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Who the email is addressed to."
+    },
+    {
+      "name": "from",
+      "type": "string",
+      "label": "From",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the sender."
+    },
+	{
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Directory where HTML file is located."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}

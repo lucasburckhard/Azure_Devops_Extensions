@@ -1,0 +1,75 @@
+{
+  "id": "6571b030-ac88-638b-8022-ef286da03d2d",
+  "name": "SPNSqlDeploy",
+  "friendlyName": "SPN SQL Deploy",
+  "description": "Deploys SQL scripts to Azure Databases using Azure SPN authentication.",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "Use this utility to run SQL scripts using an SPN to authenticate.  ",
+  "category": "Utility",
+  "visibility": [
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "12"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "SPN SQL DEPLOY $(message)",
+  "inputs": [
+    {
+      "name": "SPNName",
+      "type": "string",
+      "label": "Azure SPN",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Target Azure Resource Manager SPN for deploying SQL files.  Use a secure string variable for this."
+    },
+    {
+      "name": "SPNKey",
+      "type": "string",
+      "label": "SPN Key",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The SPN client Key.  Use a secure string variable for this."
+    },
+    {
+      "name": "Tenant",
+      "type": "string",
+      "label": "Tenant Id",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Azure Subscription Tenant ID.  Use a secure string variable for this."
+    },
+    {
+      "name": "ServerName",
+      "type": "string",
+      "label": "Server Name",
+      "defaultValue": ".database.windows.net",
+      "required": true,
+      "helpMarkDown": "Azure SQL Server name, like Fabrikam.database.windows.net,1433 or Fabrikam.database.windows.net."
+    },
+    {
+      "name": "DatabaseName",
+      "type": "string",
+      "label": "Database Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name of the Azure SQL Database, where the files will be deployed."
+    },
+    {
+      "name": "Script",
+      "type": "filePath",
+      "label": "Script File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Name of the script file to use"
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}

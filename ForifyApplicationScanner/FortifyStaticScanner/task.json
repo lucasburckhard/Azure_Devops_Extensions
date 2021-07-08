@@ -1,0 +1,59 @@
+{
+  "id": "6571b030-ac88-478b-5773-ef476da03d2d",
+  "name": "FortifyScanner",
+  "friendlyName": "Fortify Application Scanner",
+  "description": "Scans applications for vulnerabilities and uploads results to Fortify SSC website",
+  "author": "Lucas Burckhard",
+  "helpMarkDown": "Fority Scanner will scan every file in the working directory including subfolders.  The Fortify base url, project name, and project version must match what is actually used on the Fortify SSC website.",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "21"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "HP Fortify Scanner $(message)",
+  "inputs": [
+    {
+      "name": "baseUrl",
+      "type": "string",
+      "label": "Fortify Base URL",
+      "defaultValue": "https://fortify/ssc",
+      "required": true,
+      "helpMarkDown": "The url you would normally use to access HP Fortify."
+    },
+    {
+      "name": "projectName",
+      "type": "string",
+      "label": "Project Name",
+      "defaultValue": "RES-$(System.TeamProject)-$(Build.DefinitionName)",
+      "required": true,
+      "helpMarkDown": "This is the project name that your Fortify SSC website is expecting on the target application."
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "label": "Application Version",
+      "defaultValue": "$(AssemblyInfo.AssemblyVersion.Major).$(AssemblyInfo.AssemblyVersion.Minor).$(AssemblyInfo.AssemblyVersion.Patch)",
+      "required": true,
+      "helpMarkDown": "This is the version of the application for which the fortify scan search is based."
+    },
+	{
+      "name": "workingDirectory",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "$(System.DefaultWorkingDirectory)",
+      "required": true,
+      "helpMarkDown": "Root path for application folders and files to be scanned."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "step.ps1"
+    }
+  }
+}
